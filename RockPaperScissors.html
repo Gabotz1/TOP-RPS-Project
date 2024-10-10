@@ -1,1 +1,37 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("Hello World!")
+
+        function getComputerChoice() {
+            //Function that use Math.random to get 0, 1 or 2
+            function getRandom(max) {
+                return Math.floor(Math.random() * max);        
+            }
+            //console.log(getRandom(3));
+
+            let cpu = getRandom(3);
+
+            if (cpu == 0) {
+                return "Rock";
+            } else if (cpu == 1) {
+                return "Paper";
+            } else {
+                return "Scissors";
+            }
+        }
+        console.log(getComputerChoice());
+        
+
+
+
+    </script>
+    
+</body>
+</html>
