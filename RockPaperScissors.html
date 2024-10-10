@@ -7,29 +7,32 @@
 </head>
 <body>
     <script>
-        console.log("Hello World!")
 
         function getComputerChoice() {
             //Function that use Math.random to get 0, 1 or 2
             function getRandom(max) {
                 return Math.floor(Math.random() * max);        
             }
-            //console.log(getRandom(3));
 
             let cpu = getRandom(3);
 
+            //Condition to select Rock, Paper or Scissors
             if (cpu == 0) {
-                return "Rock";
+                return "rock";
             } else if (cpu == 1) {
-                return "Paper";
+                return "paper";
             } else {
-                return "Scissors";
+                return "scissors";
             }
         }
         console.log(getComputerChoice());
         
+        function getHumanChoice(){
+            return prompt("What's your play?")
+        }
 
-
+        let human = getHumanChoice();
+        console.log(human);
 
     </script>
     
