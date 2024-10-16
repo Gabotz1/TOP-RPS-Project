@@ -25,14 +25,49 @@
                 return "scissors";
             }
         }
-        console.log(getComputerChoice());
+        //console.log(getComputerChoice());
         
+        //Prompt to get the human choice
         function getHumanChoice(){
-            return prompt("What's your play?")
-        }
+            let human = prompt("What's your play?","Rock")
+            return human.toLowerCase();
+        } 
 
-        let human = getHumanChoice();
+        //Score, Init 0
+        let humanScore = 0;
+        let computerScore = 0;
+
+        function playRound(humanChoice,cpuChoice){
+        
+            //TIE
+            if (human == cpu) {
+                alert (`Draw!, score is You = ${humanScore}, CPU = ${computerScore}`);
+            }
+            //player wins
+            else if (human == "rock" && cpu == "scissors" || human == "paper" && cpu == "rock" || human == "scissors" && cpu == "paper") {
+                ++humanScore;
+                alert ("You win!");
+            }
+            //cpu wins
+            else {
+                ++computerScore;
+                alert ("CPU wins!");
+                }
+            }
+        
+        const cpu = getComputerChoice();
+        const human = getHumanChoice();
+        
+
         console.log(human);
+        console.log(cpu);
+
+
+        playRound(human,cpu);
+        alert (`Score is You = ${humanScore}; CPU = ${computerScore}`);
+
+
+
 
     </script>
     
