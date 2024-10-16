@@ -8,7 +8,7 @@
 <body>
     <script>
 
-        function getComputerChoice() {
+        function getCpuChoice() {
             //Function that use Math.random to get 0, 1 or 2
             function getRandom(max) {
                 return Math.floor(Math.random() * max);        
@@ -25,7 +25,6 @@
                 return "scissors";
             }
         }
-        //console.log(getComputerChoice());
         
         //Prompt to get the human choice
         function getHumanChoice(){
@@ -33,41 +32,56 @@
             return human.toLowerCase();
         } 
 
-        //Score, Init 0
-        let humanScore = 0;
-        let computerScore = 0;
+        //Function to play the 5 round game
+        function playGame() {
 
-        function playRound(humanChoice,cpuChoice){
-        
-            //TIE
-            if (human == cpu) {
-                alert (`Draw!, score is You = ${humanScore}, CPU = ${computerScore}`);
+            //Score, Init 0
+            let humanScore = 0;
+            let cpuScore = 0;
+
+            for (i=0;i<5;i++){
+
+                
+
+                function playRound(humanChoice,cpuChoice){
+                
+                    //TIE
+                    if (human == cpu) {
+                        alert (`Draw!, score is You = ${humanScore}, CPU = ${computerScore}`);
+                    }
+                    //player wins
+                    else if (human == "rock" && cpu == "scissors" || human == "paper" && cpu == "rock" || human == "scissors" && cpu == "paper") {
+                        ++humanScore;
+                        alert (`${human} beats ${cpu}. You win!`);
+                    }
+                    //cpu wins
+                    else {
+                        ++cpuScorerScore;
+                        alert (`${cpu} beats ${human}. CPU wins!`);
+                        }
+                    }
+
+                const cpu = getCpuChoice();
+                const human = getHumanChoice();
+                
+                console.log(human);
+                console.log(cpu);
+
+                playRound(human,cpu);
+                alert (`Score is You = ${humanScore}; CPU = ${cpuScore}`);
             }
-            //player wins
-            else if (human == "rock" && cpu == "scissors" || human == "paper" && cpu == "rock" || human == "scissors" && cpu == "paper") {
-                ++humanScore;
-                alert ("You win!");
+
+            alert (`Final score is: You = ${humanScore}, CPU = ${cpuScore}`);
+            
+            if (humanScore > cpuScore){
+                alert ("Congratulations!");
+            } else {
+                alert ("Loser! Try again!");
             }
-            //cpu wins
-            else {
-                ++computerScore;
-                alert ("CPU wins!");
-                }
-            }
-        
-        const cpu = getComputerChoice();
-        const human = getHumanChoice();
-        
 
-        console.log(human);
-        console.log(cpu);
+        }
 
-
-        playRound(human,cpu);
-        alert (`Score is You = ${humanScore}; CPU = ${computerScore}`);
-
-
-
+        playGame();
 
     </script>
     
